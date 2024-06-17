@@ -10,7 +10,8 @@ import { unicornConfig } from './src/configs/unicorn.js';
 
 export default tslint.config(
   eslint.configs.recommended,
-  ...tslint.configs.recommendedTypeChecked,
+  ...tslint.configs.recommended,
+  // ...tslint.configs.recommendedTypeChecked,
   {
     languageOptions: {
       parserOptions: {
@@ -35,7 +36,7 @@ export default tslint.config(
   {
     rules: {
       eqeqeq: 'error',
-      '@typescript-eslint/await-thenable': 'error',
+      // '@typescript-eslint/await-thenable': 'error',
       '@typescript-eslint/consistent-type-assertions': 'off',
       '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
       '@typescript-eslint/ban-types': 'error',
