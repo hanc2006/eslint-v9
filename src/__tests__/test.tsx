@@ -3,6 +3,9 @@ import { createRoot } from 'react-dom/client';
 
 import React from 'react';
 
+// @typescript-eslint/await-thenable
+void (await 'value');
+
 const App = () => {
   // @stylistic/semi
   const [foo] = React.useState(0)

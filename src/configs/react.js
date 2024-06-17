@@ -6,10 +6,11 @@ import pluginReactHooks from 'eslint-plugin-react-hooks';
 /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigFile} */
 export const reactConfig = [
   {
-    files: ['**/*.{jsx,tsx}'],
+    files: ['**/*.tsx'],
     languageOptions: {
       parserOptions: {
         project: true,
+        tsconfigRootDir: import.meta.dirname,
         ecmaFeatures: { jsx: true },
       },
     },
