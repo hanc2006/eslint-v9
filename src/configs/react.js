@@ -1,6 +1,6 @@
 // @ts-check
-import { fixupConfigRules } from '@eslint/compat';
-import pluginReactConfig from 'eslint-plugin-react/configs/recommended.js';
+import { fixupPluginRules } from '@eslint/compat';
+import pluginReact from 'eslint-plugin-react';
 import pluginReactHooks from 'eslint-plugin-react-hooks';
 
 /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigFile} */
@@ -9,7 +9,7 @@ export const reactConfig = [
     files: ['**/*.{jsx,tsx}'],
     languageOptions: {
       parserOptions: {
-        project: ['tsconfig.json'],
+        project: true,
         ecmaFeatures: { jsx: true },
       },
     },
@@ -18,10 +18,9 @@ export const reactConfig = [
         version: 'detect',
       },
     },
-    ...fixupConfigRules(pluginReactConfig),
     plugins: {
-      // react: pluginReact,
-      'react-hooks': pluginReactHooks,
+      react: fixupPluginRules(pluginReact),
+      'react-hooks': fixupPluginRules(pluginReactHooks),
     },
     rules: {
       'react/void-dom-elements-no-children': 'error',

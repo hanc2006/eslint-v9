@@ -8,12 +8,13 @@ import { stylisticConfig } from './src/configs/stylistic.js';
 import { tailwindConfig } from './src/configs/tailwind.js';
 import { unicornConfig } from './src/configs/unicorn.js';
 
-export default [
+export default tslint.config(
+  eslint.configs.recommended,
+  ...tslint.configs.recommended,
   {
     languageOptions: {
       parserOptions: {
-        project: ['tsconfig.json'],
-        ecmaFeatures: { jsx: true },
+        project: true,
       },
       globals: {
         ...globals.browser,
@@ -23,8 +24,6 @@ export default [
       },
     },
   },
-  eslint.configs.recommended,
-  ...tslint.configs.recommendedTypeChecked,
   ...(await reactConfig),
   ...(await prettierConfig),
   ...(await unicornConfig),
@@ -34,7 +33,7 @@ export default [
   {
     rules: {
       eqeqeq: 'error',
-      '@typescript-eslint/await-thenable': 'error',
+      // '@typescript-eslint/await-thenable': 'error',
       '@typescript-eslint/consistent-type-assertions': 'off',
       '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
       '@typescript-eslint/ban-types': 'error',
@@ -42,4 +41,4 @@ export default [
       '@typescript-eslint/no-unused-vars': ['error', { ignoreRestSiblings: true, argsIgnorePattern: '^_' }],
     },
   },
-];
+);
