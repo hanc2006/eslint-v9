@@ -10,8 +10,8 @@ import { unicornConfig } from './src/configs/unicorn.js';
 
 export default tslint.config(
   eslint.configs.recommended,
-  ...tslint.configs.recommended,
-  // ...tslint.configs.recommendedTypeChecked,
+  // ...tslint.configs.recommended,
+  ...tslint.configs.recommendedTypeChecked,
   {
     languageOptions: {
       parserOptions: {
