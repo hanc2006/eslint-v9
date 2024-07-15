@@ -7,7 +7,7 @@ import React from 'react';
 void (await 'value');
 
 const App = () => {
-  // @stylistic/semi
+  // prettier/prettier
   const [foo] = React.useState(0)
 
   if (true) {
