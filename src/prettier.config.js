@@ -1,0 +1,21 @@
+/** @type import('prettier").Options */
+export default {
+  printWidth: 100,
+  tabWidth: 2,
+  useTabs: false,
+  semi: true,
+  singleQuote: true,
+  quoteProps: 'as-needed',
+  jsxSingleQuote: false,
+  trailingComma: 'none',
+  bracketSpacing: true,
+  jsxBracketSameLine: false,
+  arrowParens: 'always',
+  requirePragma: false,
+  insertPragma: false,
+  proseWrap: 'preserve',
+  htmlWhitespaceSensitivity: 'css',
+  endOfLine: 'lf',
+  experimentalTernaries: true,
+  plugins: ['prettier-plugin-sh'],
+};

@@ -1,29 +1,11 @@
 {
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "outDir": "./dist",
-    "allowJs": true,
-    "checkJs": true,
-    "noEmit": true,
-    "sourceMap": true,
-    "strict": true,
-    "skipLibCheck": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
-    "forceConsistentCasingInFileNames": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "lib": [
-      "ES2023",
-      "dom",
-      "dom.iterable",
-      "esnext",
-      "WebWorker"
-    ]
+    "baseUrl": "${configDir}/src",
+    "paths": {
+      "@/*": ["${configDir}/src/*"]
+    }
   },
-  "include": ["."],
-  "exclude": ["node_modules"]
+  "include": ["src"],
+  "exclude": ["node_modules", "__tests__", "dist", "bin"]
 }

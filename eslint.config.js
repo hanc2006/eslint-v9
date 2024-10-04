@@ -1,45 +1,5 @@
-import eslint from '@eslint/js';
-import globals from 'globals';
-import tslint from 'typescript-eslint';
-import { importConfig } from './src/configs/import.js';
-import { prettierConfig } from './src/configs/prettier.js';
-import { reactConfig } from './src/configs/react.js';
-import { tailwindConfig } from './src/configs/tailwind.js';
-import { unicornConfig } from './src/configs/unicorn.js';
+// import config from './dist/index.js';
+import config from '@yol-digital/node-linter-config';
+// console.log(config);
 
-export default tslint.config(
-  eslint.configs.recommended,
-  // ...tslint.configs.recommended,
-  ...tslint.configs.recommendedTypeChecked,
-  {
-    languageOptions: {
-      parserOptions: {
-        project: true,
-        tsconfigRootDir: import.meta.dirname,
-        ecmaFeatures: { jsx: true },
-      },
-      globals: {
-        ...globals.browser,
-        ...globals.node,
-        ...globals.nodeBuiltin,
-        ...globals.worker,
-      },
-    },
-  },
-  ...(await reactConfig),
-  ...(await prettierConfig),
-  ...(await unicornConfig),
-  ...(await importConfig),
-  ...(await tailwindConfig),
-  {
-    rules: {
-      eqeqeq: 'error',
-      '@typescript-eslint/no-unused-vars': ['error', { ignoreRestSiblings: true, argsIgnorePattern: '^_' }],
-      // '@typescript-eslint/await-thenable': 'error',
-      // '@typescript-eslint/consistent-type-assertions': 'off',
-      // '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
-      // '@typescript-eslint/ban-types': 'error',
-      // '@typescript-eslint/ban-ts-comment': 'off',
-    },
-  },
-);
+export default config;
